@@ -64,7 +64,7 @@
     .print-bar-logo img { height: 56px; display: block; }
     .print-bar-nav {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 4px;
       flex: 1;
       justify-content: center;
@@ -74,12 +74,37 @@
       font-weight: 500;
       color: var(--ink);
       text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      transition: color 0.15s, background 0.15s;
+      padding: 0 12px;
+      border-radius: 0;
+      position: relative;
       white-space: nowrap;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
     }
-    .print-bar-nav a:hover { color: var(--smcc-dark); background: #f0f7ee; }
+    /* Green › arrow after each nav item */
+    .print-bar-nav a::after {
+      content: ' ›';
+      color: var(--smcc-green);
+      font-size: 15px;
+      font-weight: 400;
+    }
+    /* Green underline — slides in on hover */
+    .print-bar-nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      height: 3px;
+      background: var(--smcc-green);
+      border-radius: 2px 2px 0 0;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.2s ease;
+    }
+    .print-bar-nav a:hover { color: var(--smcc-dark); }
+    .print-bar-nav a:hover::before { transform: scaleX(1); }
     .print-bar-actions { display: flex; gap: 8px; flex-shrink: 0; }
     .btn-print {
       background: var(--smcc-green);
