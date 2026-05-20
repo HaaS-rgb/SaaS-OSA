@@ -70,22 +70,22 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid #e8ecea;
-      box-shadow: 0 1px 4px rgba(3,52,54,0.07);
-      height: 90px;
+      /* 5px dark teal bottom border — matches SMCC exactly */
+      border-bottom: 5px solid rgb(2, 52, 54);
+      height: 100px;
     }
     .print-bar .site-inner {
       height: 100%;
       display: flex;
-      align-items: stretch;
+      align-items: center;        /* centres logo, nav, buttons vertically */
       justify-content: space-between;
       gap: 16px;
     }
     .print-bar-logo { display: flex; align-items: center; flex-shrink: 0; }
-    .print-bar-logo img { height: 74px; display: block; }
+    .print-bar-logo img { height: 74px; width: auto; display: block; }
     .print-bar-nav {
       display: flex;
-      align-items: stretch;
+      align-items: stretch;       /* stretch so hover-underline reaches the bottom border */
       gap: 4px;
       flex: 1;
       justify-content: center;
@@ -95,61 +95,65 @@
       font-weight: 400;
       color: #57636b;
       text-decoration: none;
-      padding: 0 12px;
-      border-radius: 0;
+      padding: 0 14px;
       position: relative;
       white-space: nowrap;
       transition: color 0.2s;
       display: flex;
       align-items: center;
     }
-    /* Green › arrow after each nav item */
+    /* Green › arrow — with proper gap after the word */
     .print-bar-nav a::after {
-      content: ' ›';
+      content: '›';
       color: var(--smcc-green);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 400;
+      margin-left: 8px;
     }
-    /* Green underline — slides in on hover */
+    /* Green underline — slides in on hover, sits on the dark teal bottom border */
     .print-bar-nav a::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 12px;
-      right: 12px;
-      height: 3px;
+      bottom: -5px;               /* sits on top of the 5px border */
+      left: 14px;
+      right: 14px;
+      height: 5px;
       background: var(--smcc-green);
-      border-radius: 2px 2px 0 0;
       transform: scaleX(0);
       transform-origin: left center;
       transition: transform 0.2s ease;
     }
     .print-bar-nav a:hover { color: var(--smcc-dark); }
     .print-bar-nav a:hover::before { transform: scaleX(1); }
-    .print-bar-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    /* Print buttons — centred vertically, not stretched */
+    .print-bar-actions {
+      display: flex; gap: 8px; flex-shrink: 0; align-items: center;
+    }
     .btn-print {
       background: var(--smcc-green);
       color: #fff;
       border: none;
-      padding: 7px 16px;
+      padding: 8px 18px;
       border-radius: 4px;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       font-family: var(--body-font);
       transition: background 0.15s;
+      line-height: 1;
     }
     .btn-print:hover { background: #5ea336; }
     .btn-outline {
       background: transparent;
       color: var(--ink);
       border: 1px solid #cdd5cc;
-      padding: 7px 16px;
+      padding: 8px 18px;
       border-radius: 4px;
       font-size: 13px;
       cursor: pointer;
       font-family: var(--body-font);
       transition: all 0.15s;
+      line-height: 1;
     }
     .btn-outline:hover { border-color: var(--smcc-dark); color: var(--smcc-dark); }
     @media (max-width: 700px) { .print-bar-nav { display: none; } }
@@ -508,37 +512,40 @@
     /* ── Newsletter strip (orange, above footer) ── */
     .newsletter-strip { background: rgb(236, 154, 41); border-top: 3px solid rgb(2, 52, 54); }
     .newsletter-strip-inner {
-      max-width: 1200px; margin: 0 auto; padding: 26px 32px;
-      display: flex; align-items: center; gap: 28px;
+      max-width: 1200px; margin: 0 auto; padding: 12px 32px;
+      display: flex; align-items: center; gap: 24px; min-height: 84px;
     }
     .newsletter-icon {
-      flex-shrink: 0; width: 64px; height: 64px;
+      flex-shrink: 0; width: 60px; height: 60px;
       display: flex; align-items: center; justify-content: center;
     }
-    .newsletter-icon svg { width: 64px; height: 64px; }
+    .newsletter-icon svg { width: 60px; height: 60px; }
+    /* Text column — takes up most of the width */
     .newsletter-text { flex: 1; min-width: 160px; }
     .newsletter-text h3 {
       font-family: var(--body-font); font-size: 20px; font-weight: 700;
-      color: #fff; margin-bottom: 3px; line-height: 1.2;
+      color: #fff; margin: 0 0 2px; line-height: 1.2;
     }
     .newsletter-text p {
-      font-family: var(--body-font); font-size: 14px; font-weight: 300;
-      color: rgba(255,255,255,0.9); line-height: 1.4;
+      font-family: var(--body-font); font-size: 15px; font-weight: 400;
+      color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0;
     }
+    /* Button — fixed width, dark teal, with sea arrow tab */
     .newsletter-btn {
-      flex-shrink: 0; display: inline-flex; align-items: stretch;
-      background: rgb(2, 52, 54); border-radius: 4px; overflow: hidden;
+      flex-shrink: 0; display: flex; align-items: stretch;
+      background: rgb(2, 52, 54);
       text-decoration: none; font-family: var(--body-font); white-space: nowrap;
+      width: 255px;
     }
     .newsletter-btn .nb-text {
-      padding: 12px 22px; color: #fff; font-size: 15px; font-weight: 600;
+      flex: 1; padding: 8px 16px; color: #fff; font-size: 20px; font-weight: 400;
       display: flex; align-items: center;
     }
     .newsletter-btn .nb-arrow {
-      background: #59c5c7; padding: 12px 15px; color: #fff;
-      font-size: 20px; line-height: 1; display: flex; align-items: center;
+      background: #59c5c7; padding: 8px 14px; color: #fff;
+      font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center;
     }
-    .newsletter-btn:hover .nb-text { background: rgba(255,255,255,0.08); }
+    .newsletter-btn:hover { opacity: 0.9; }
 
     /* ── Site footer ── */
     .site-footer { font-family: var(--footer-font); }
@@ -549,35 +556,37 @@
       max-width: 1200px; margin: 0 auto; padding: 0 32px;
     }
 
-    /* Three-column grid */
+    /* Three-column grid — gap-based, no padding tricks */
     .site-footer-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      padding: 48px 0 44px;
+      column-gap: 0;
+      padding: 50px 0 50px;
+      align-items: start;
     }
-    .footer-col-wrap {
-      padding: 0 40px 0 0;
-    }
+    /* Col 1: right padding creates gap to divider */
+    .footer-col-wrap { padding: 0 30px 0 0; }
+    /* Col 2: left border is the divider, padding either side */
     .footer-col-wrap:nth-child(2) {
-      padding: 0 40px;
-      border-left: 1px solid rgba(255,255,255,0.15);
+      padding: 0 30px 0 30px;
+      border-left: 1px solid rgba(255,255,255,0.2);
     }
-    .footer-col-wrap:nth-child(3) {
-      padding: 0 0 0 40px;
-    }
-    /* Column headings: Open Sans 19px weight 100 */
+    /* Col 3: left padding only, no divider */
+    .footer-col-wrap:nth-child(3) { padding: 0 0 0 30px; }
+    /* Column headings: Open Sans 19px weight 100 — matches SMCC exactly */
     .footer-col-wrap h4 {
       font-family: var(--body-font);
       font-size: 19px; font-weight: 100;
-      color: #fff; margin-bottom: 5px;
+      color: #fff; margin: 0 0 5px;
     }
-    .footer-col-wrap ul { list-style: none; margin-top: 14px; }
-    .footer-col-wrap ul li { margin-bottom: 10px; }
+    .footer-col-wrap ul { list-style: none; margin: 14px 0 0; padding: 0; }
+    /* li spacing: 5px top+bottom padding, no margin — matches SMCC li style */
+    .footer-col-wrap ul li { padding: 5px 0; margin: 0; }
     .footer-col-wrap ul li a {
       font-family: var(--footer-font);
       font-size: 13px; font-weight: 100;
       color: #bbc0c3;
-      text-decoration: none; line-height: 1.5;
+      text-decoration: none; line-height: 19.5px;
       transition: color 0.15s;
     }
     .footer-col-wrap ul li a:hover { color: #76bd1d; }
@@ -642,12 +651,16 @@
     }
     .site-footer-bottom {
       display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 16px 0 20px;
+      padding: 20px 0 22px;
       font-family: var(--footer-font);
       font-size: 13px; font-weight: 400;
       color: #bbc0c3;
-      gap: 32px; flex-wrap: wrap;
+      gap: 40px;
     }
+    /* Left column: address text, wraps to 2 lines naturally */
+    .site-footer-bottom .footer-addr { flex: 1; min-width: 0; }
+    /* Right column: copyright, no-wrap */
+    .site-footer-bottom .footer-copy { flex-shrink: 0; white-space: nowrap; }
     .site-footer-bottom .irm { color: rgb(118, 189, 29); }
 
     @media (max-width: 760px) {
@@ -1606,8 +1619,8 @@
   <div class="footer-lower">
     <div class="footer-lower-inner">
       <div class="site-footer-bottom">
-        <span>An <span class="irm">Intelligent Resource Management</span> Company. Registered Address: Clos Fferws Parc Hendre Capel Hendre, Ammanford, Carmarthenshire, Wales, SA18 3BL.</span>
-        <span>© 2026 SaveMoneyCutCarbon.com. All Rights Reserved.</span>
+        <p class="footer-addr">An <span class="irm">Intelligent Resource Management</span> Company. Registered Address: Clos Fferws Parc Hendre Capel Hendre, Ammanford, Carmarthenshire, Wales, SA18 3BL.</p>
+        <p class="footer-copy">© 2026 SaveMoneyCutCarbon.com. All Rights Reserved.</p>
       </div>
     </div>
   </div><!-- /.footer-lower -->
