@@ -44,21 +44,32 @@
       line-height: 1.5;
     }
 
+    /* ── Shared site-width container ── */
+    .site-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     /* ── Site navbar (SMCC-style) ── */
     .print-bar {
       background: #fff;
       color: var(--ink);
-      padding: 0 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 100;
-      gap: 16px;
       border-bottom: 1px solid #e8ecea;
       box-shadow: 0 1px 4px rgba(3,52,54,0.07);
       height: 76px;
+    }
+    .print-bar .site-inner {
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 16px;
     }
     .print-bar-logo { display: flex; align-items: center; flex-shrink: 0; }
     .print-bar-logo img { height: 56px; display: block; }
@@ -493,7 +504,7 @@
       font-family: var(--body-font);
     }
     .site-footer .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px;
     }
@@ -618,7 +629,10 @@
     .breadcrumb {
       background: #f5f7f5;
       border-bottom: 1px solid #e4ece4;
-      padding: 8px 28px;
+    }
+    .breadcrumb .site-inner {
+      padding-top: 8px;
+      padding-bottom: 8px;
       font-size: 12px;
       color: #666;
       display: flex;
@@ -658,26 +672,30 @@
 
 <!-- ── Print / action bar ── -->
 <div class="print-bar">
-  <a class="print-bar-logo" href="https://www.savemoneycutcarbon.com/" target="_blank">
-    <img src="Logo%20Thumbnail%202026%20Primary%20No%20Strap.png" alt="SaveMoneyCutCarbon">
-  </a>
-  <nav class="print-bar-nav">
-    <a href="#">Support for Business</a>
-    <a href="#">Shop Online</a>
-    <a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="_blank">Learn &amp; Save</a>
-    <a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="_blank">About SMCC</a>
-  </nav>
-  <div class="print-bar-actions">
-    <button class="btn-outline" onclick="window.print()">🖨 Print</button>
-    <button class="btn-print" onclick="window.print()">Save as PDF</button>
+  <div class="site-inner">
+    <a class="print-bar-logo" href="https://www.savemoneycutcarbon.com/" target="_blank">
+      <img src="Logo%20Thumbnail%202026%20Primary%20No%20Strap.png" alt="SaveMoneyCutCarbon">
+    </a>
+    <nav class="print-bar-nav">
+      <a href="#">Support for Business</a>
+      <a href="#">Shop Online</a>
+      <a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="_blank">Learn &amp; Save</a>
+      <a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="_blank">About SMCC</a>
+    </nav>
+    <div class="print-bar-actions">
+      <button class="btn-outline" onclick="window.print()">🖨 Print</button>
+      <button class="btn-print" onclick="window.print()">Save as PDF</button>
+    </div>
   </div>
 </div>
 
 <!-- ── Breadcrumb ── -->
 <div class="breadcrumb">
-  <a href="https://www.savemoneycutcarbon.com/">SaveMoneyCutCarbon</a>
-  <span class="breadcrumb-sep">›</span>
-  <span class="breadcrumb-current">Decarbonisation &amp; Retrofit</span>
+  <div class="site-inner">
+    <a href="https://www.savemoneycutcarbon.com/">SaveMoneyCutCarbon</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Decarbonisation &amp; Retrofit</span>
+  </div>
 </div>
 
 <div class="pages">
