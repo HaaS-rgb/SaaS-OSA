@@ -508,137 +508,180 @@
     /* ── Site footer (SMCC-style) ── */
     .site-footer {
       background: #033436;
-      padding: 56px 0 0;
-      margin-top: 0;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.75);
       font-family: var(--footer-font);
       font-weight: 100;
-      font-size: 17px;
-      line-height: 1.5;
+      font-size: 15px;
+      line-height: 1.6;
     }
-    .site-footer .container {
+
+    /* Mailing banner — full-width orange strip, no rounding */
+    .footer-banner {
+      background: var(--smcc-orange);
+    }
+    .footer-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 26px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .footer-banner-icon {
+      flex-shrink: 0;
+      width: 58px; height: 58px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-banner-icon svg { width: 34px; height: 34px; }
+    .footer-banner-text { flex: 1; min-width: 180px; }
+    .footer-banner-text h3 {
+      font-family: var(--body-font);
+      font-size: 20px; font-weight: 700;
+      color: #fff; margin-bottom: 3px; line-height: 1.2;
+    }
+    .footer-banner-text p {
+      font-family: var(--body-font);
+      font-size: 14px; font-weight: 300;
+      color: rgba(255,255,255,0.88); line-height: 1.4;
+    }
+    /* Split-style button: dark teal body + sea-green arrow tab */
+    .footer-banner-btn {
+      flex-shrink: 0;
+      display: inline-flex; align-items: stretch;
+      background: var(--smcc-dark);
+      border-radius: 5px; overflow: hidden;
+      text-decoration: none;
+      font-family: var(--body-font);
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+    .footer-banner-btn:hover { opacity: 0.88; }
+    .footer-banner-btn .btn-label {
+      padding: 13px 22px;
+      color: #fff; font-size: 15px; font-weight: 600;
+      display: flex; align-items: center;
+    }
+    .footer-banner-btn .btn-arrow {
+      background: #59c5c7;
+      padding: 13px 15px;
+      color: #fff; font-size: 20px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Footer body */
+    .footer-body {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px;
     }
-    /* Mailing banner */
-    .footer-banner {
-      background: var(--smcc-orange);
-      padding: 28px 32px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      border-radius: 6px;
-      margin-bottom: 48px;
-      flex-wrap: wrap;
-    }
-    .footer-banner-icon { font-size: 28px; flex-shrink: 0; }
-    .footer-banner-text { flex: 1; min-width: 220px; }
-    .footer-banner-text h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; font-family: var(--body-font); }
-    .footer-banner-text p { font-size: 17px; font-weight: 100; color: rgba(255,255,255,0.85); }
-    .footer-banner-btn {
-      background: var(--smcc-dark);
-      color: #fff;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: var(--body-font);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .footer-banner-btn:hover { background: #044c4f; }
-    /* Grid */
+
+    /* Three-column grid */
     .site-footer-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 40px;
+      grid-template-columns: 1fr 1fr 1.15fr;
+      padding: 48px 0 44px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
+    .footer-col-wrap { padding: 0 40px 0 0; }
+    .footer-col-wrap:nth-child(2) {
+      padding: 0 40px;
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer-col-wrap:nth-child(3) {
+      padding: 0 0 0 40px;
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
     .footer-col-wrap h4 {
-      font-size: 15px;
-      font-weight: 700;
+      font-family: var(--footer-font);
+      font-size: 17px; font-weight: 400;
       color: #fff;
       margin-bottom: 18px;
-      font-family: var(--body-font);
-      letter-spacing: 0.01em;
     }
     .footer-col-wrap ul { list-style: none; }
-    .footer-col-wrap ul li { margin-bottom: 10px; }
+    .footer-col-wrap ul li { margin-bottom: 9px; }
     .footer-col-wrap ul li a {
-      font-size: 17px;
-      font-weight: 100;
+      font-size: 15px; font-weight: 100;
       color: rgba(255,255,255,0.75);
       text-decoration: none;
       transition: color 0.15s;
     }
     .footer-col-wrap ul li a:hover { color: #76bd43; }
+
     /* Customer support column */
-    .footer-support-desc { font-size: 17px; font-weight: 100; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+    .footer-support-desc {
+      font-size: 15px; font-weight: 100;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 18px;
+    }
     .footer-contact-btn {
-      display: inline-block;
+      display: block;
       background: var(--smcc-green);
       color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 10px 28px;
-      border-radius: 4px;
+      padding: 13px 28px;
+      border-radius: 5px;
       text-decoration: none;
       margin-bottom: 16px;
+      font-family: var(--body-font);
+      font-size: 16px;
       transition: background 0.15s;
+      text-align: center;
     }
-    .footer-contact-btn:hover { background: #5ea336; }
+    .footer-contact-btn strong { font-weight: 700; }
+    .footer-contact-btn span   { font-weight: 300; }
+    .footer-contact-btn:hover  { background: #5ea336; }
     .footer-phone {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--smcc-green);
-      letter-spacing: 0.01em;
-      margin-bottom: 20px;
       display: block;
+      font-family: var(--body-font);
+      font-size: 28px; font-weight: 700;
+      color: var(--smcc-green);
+      letter-spacing: 0.05em;
+      margin-bottom: 22px;
       text-decoration: none;
+      transition: color 0.15s;
     }
-    .footer-social-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+    .footer-phone:hover { color: #5ea336; }
+    .footer-social-label {
+      font-size: 16px; font-weight: 100;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 14px;
+    }
     .footer-social-icons { display: flex; gap: 10px; }
     .footer-social-icons a {
-      width: 36px; height: 36px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       background: var(--smcc-orange);
       display: flex; align-items: center; justify-content: center;
-      color: #fff;
       text-decoration: none;
       transition: background 0.2s, transform 0.15s;
       flex-shrink: 0;
     }
-    .footer-social-icons a svg { width: 17px; height: 17px; fill: #fff; display: block; }
+    .footer-social-icons a svg { width: 18px; height: 18px; fill: #fff; display: block; }
     .footer-social-icons a:hover { transform: translateY(-2px); }
-    .footer-social-icons a.si-fb:hover    { background: #1877f2; }
-    .footer-social-icons a.si-li:hover    { background: #0a66c2; }
-    .footer-social-icons a.si-x:hover     { background: #000; }
-    .footer-social-icons a.si-yt:hover    { background: #ff0000; }
-    .footer-social-icons a.si-ig:hover    { background: #e4405f; }
+    .footer-social-icons a.si-fb:hover { background: #1877f2; }
+    .footer-social-icons a.si-li:hover { background: #0a66c2; }
+    .footer-social-icons a.si-x:hover  { background: #000; }
+    .footer-social-icons a.si-yt:hover { background: #ff0000; }
+    .footer-social-icons a.si-ig:hover { background: #e4405f; }
+
     /* Bottom bar */
     .site-footer-bottom {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      gap: 16px;
+      align-items: flex-start;
+      padding: 18px 0 22px;
+      font-size: 13px; font-weight: 100;
+      color: rgba(255,255,255,0.5);
+      gap: 32px;
       flex-wrap: wrap;
     }
-    .site-footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
-    .site-footer-bottom a:hover { color: rgba(255,255,255,0.7); }
-    @media (max-width: 640px) {
+    .site-footer-bottom .irm { color: var(--smcc-green); }
+
+    @media (max-width: 760px) {
       .site-footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-banner { flex-direction: column; align-items: flex-start; }
+      .footer-col-wrap:nth-child(3) { grid-column: 1 / -1; border-left: none; padding: 24px 0 0; border-top: 1px solid rgba(255,255,255,0.12); }
+      .footer-banner-inner { flex-direction: column; align-items: flex-start; }
     }
 
     /* ── Breadcrumb ── */
@@ -1496,17 +1539,30 @@
      SITE FOOTER
 ══════════════════════════════════════════ -->
 <footer class="site-footer">
-  <div class="container">
 
-    <!-- Mailing list banner -->
-    <div class="footer-banner">
-      <div class="footer-banner-icon">✉</div>
+  <!-- ── Full-width orange mailing list strip ── -->
+  <div class="footer-banner">
+    <div class="footer-banner-inner">
+      <div class="footer-banner-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="12" width="32" height="22" rx="2" stroke="white" stroke-width="2" fill="none"/>
+          <path d="M4 14l16 11 16-11" stroke="white" stroke-width="2" fill="none"/>
+          <path d="M20 4l1.8 3.6 4 .6-2.9 2.8.7 4L20 13l-3.6 1.9.7-4L14.2 8.2l4-.6z" fill="white"/>
+        </svg>
+      </div>
       <div class="footer-banner-text">
         <h3>Join our mailing list!</h3>
         <p>Sign up to receive tips on reducing your energy &amp; water bills, new product news &amp; more.</p>
       </div>
-      <a href="https://www.savemoneycutcarbon.com/sign-up-and-save/" target="_blank" class="footer-banner-btn">Yes please! ›</a>
+      <a href="https://www.savemoneycutcarbon.com/sign-up-and-save/" target="_blank" class="footer-banner-btn">
+        <span class="btn-label">Yes please!</span>
+        <span class="btn-arrow">›</span>
+      </a>
     </div>
+  </div>
+
+  <!-- ── Main footer body ── -->
+  <div class="footer-body">
 
     <!-- Three-column grid -->
     <div class="site-footer-grid">
@@ -1521,7 +1577,7 @@
           <li><a href="https://www.savemoneycutcarbon.com/corporate-social-responsibility/" target="_blank">Corporate Social Responsibility</a></li>
           <li><a href="https://jobs.savemoneycutcarbon.com/" target="_blank">Join Our Team</a></li>
           <li><a href="https://www.savemoneycutcarbon.com/news/" target="_blank">Press</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery &amp; Human Trafficking Statement</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery and Human Trafficking Statement</a></li>
         </ul>
       </div>
 
@@ -1544,7 +1600,7 @@
       <div class="footer-col-wrap">
         <h4>Customer Support</h4>
         <p class="footer-support-desc">For general advice about a product or your order:</p>
-        <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank" class="footer-contact-btn">Contact us</a>
+        <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank" class="footer-contact-btn"><strong>Contact</strong> <span>us</span></a>
         <a href="tel:03331235464" class="footer-phone">0333 123 5464</a>
         <p class="footer-social-label">Follow us on</p>
         <div class="footer-social-icons">
@@ -1568,11 +1624,14 @@
 
     </div><!-- /.site-footer-grid -->
 
+    <!-- Bottom bar -->
     <div class="site-footer-bottom">
-      <span>An Intelligent Resource Management Company. Registered Address: Clos Fferws Parc Hendre Capel Hendre, Ammanford, Carmarthenshire, Wales, SA18 3BL.</span>
+      <span>An <span class="irm">Intelligent Resource Management</span> Company. Registered Address: Clos Fferws Parc Hendre Capel Hendre, Ammanford, Carmarthenshire, Wales, SA18 3BL.</span>
       <span>© 2026 SaveMoneyCutCarbon.com. All Rights Reserved.</span>
     </div>
-  </div>
+
+  </div><!-- /.footer-body -->
+
 </footer>
 
 <script>
