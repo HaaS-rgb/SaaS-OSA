@@ -506,17 +506,16 @@
     .chip.orange { background: var(--smcc-orange); }
 
     /* ── Newsletter strip (orange, above footer) ── */
-    .newsletter-strip { background: rgb(236, 154, 41); }
+    .newsletter-strip { background: rgb(236, 154, 41); border-top: 3px solid rgb(2, 52, 54); }
     .newsletter-strip-inner {
       max-width: 1200px; margin: 0 auto; padding: 26px 32px;
       display: flex; align-items: center; gap: 28px;
     }
     .newsletter-icon {
-      flex-shrink: 0; width: 58px; height: 58px;
-      background: rgba(255,255,255,0.18); border-radius: 10px;
+      flex-shrink: 0; width: 64px; height: 64px;
       display: flex; align-items: center; justify-content: center;
     }
-    .newsletter-icon svg { width: 34px; height: 34px; }
+    .newsletter-icon svg { width: 64px; height: 64px; }
     .newsletter-text { flex: 1; min-width: 160px; }
     .newsletter-text h3 {
       font-family: var(--body-font); font-size: 20px; font-weight: 700;
@@ -565,7 +564,6 @@
     }
     .footer-col-wrap:nth-child(3) {
       padding: 0 0 0 40px;
-      border-left: 1px solid rgba(255,255,255,0.15);
     }
     /* Column headings: Open Sans 19px weight 100 */
     .footer-col-wrap h4 {
@@ -1516,10 +1514,14 @@
 <section class="newsletter-strip">
   <div class="newsletter-strip-inner">
     <div class="newsletter-icon">
-      <svg viewBox="0 0 40 40" fill="none">
-        <rect x="4" y="11" width="32" height="22" rx="2" stroke="white" stroke-width="2" fill="none"/>
-        <path d="M4 13l16 11 16-11" stroke="white" stroke-width="2" fill="none"/>
-        <path d="M20 3l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L14.2 7.2l4-.6z" fill="white"/>
+      <!-- Open envelope with star badge, matching SMCC style -->
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Envelope body -->
+        <rect x="4" y="16" width="40" height="28" rx="2" stroke="white" stroke-width="2" fill="none"/>
+        <!-- Open flap (V shape at top) -->
+        <path d="M4 16 L24 30 L44 16" stroke="white" stroke-width="2" fill="none"/>
+        <!-- Star -->
+        <path d="M24 4 L26.2 10.2 L33 10.2 L27.4 14.1 L29.6 20.3 L24 16.4 L18.4 20.3 L20.6 14.1 L15 10.2 L21.8 10.2 Z" fill="white"/>
       </svg>
     </div>
     <div class="newsletter-text">
@@ -1574,7 +1576,7 @@
         <div class="footer-col-wrap">
           <h4>Customer Support</h4>
           <p class="footer-support-desc">For general advice about a product or your order:</p>
-          <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank" class="footer-contact-btn">Contact us</a>
+          <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank" class="footer-contact-btn"><strong>Contact</strong> us</a>
           <a href="tel:03331235464" class="footer-phone">0333 123 5464</a>
           <p class="footer-social-heading">Follow us on</p>
           <div class="footer-social-icons">
