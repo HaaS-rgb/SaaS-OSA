@@ -81,8 +81,22 @@
       justify-content: space-between;
       gap: 16px;
     }
-    .print-bar-logo { display: flex; align-items: center; flex-shrink: 0; }
-    .print-bar-logo img { height: 74px; width: auto; display: block; }
+    /* Logo: icon PNG + "SaveMoney CutCarbon" text to match SMCC header */
+    .print-bar-logo {
+      display: flex; align-items: center; gap: 10px;
+      flex-shrink: 0; text-decoration: none;
+    }
+    .print-bar-logo .logo-icon { height: 74px; width: auto; display: block; }
+    .print-bar-logo .logo-wordmark {
+      display: flex; flex-direction: column; line-height: 1.05;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 26px; font-weight: 800;
+      color: #76bd43;
+    }
+    .print-bar-logo .logo-wordmark sup {
+      font-size: 13px; font-weight: 400;
+      vertical-align: super; line-height: 0;
+    }
     .print-bar-nav {
       display: flex;
       align-items: stretch;       /* stretch so hover-underline reaches the bottom border */
@@ -159,7 +173,7 @@
     @media (max-width: 700px) { .print-bar-nav { display: none; } }
 
     /* ── Page wrapper ── */
-    .pages { max-width: 860px; margin: 32px auto; display: flex; flex-direction: column; gap: 24px; padding: 0 16px 64px; }
+    .pages { max-width: 860px; margin: 32px auto; display: flex; flex-direction: column; gap: 24px; padding: 0 16px 120px; }
 
     /* ── A4 page shell ── */
     .page {
@@ -512,23 +526,24 @@
     /* ── Newsletter strip (orange, above footer) ── */
     .newsletter-strip { background: rgb(236, 154, 41); border-top: 3px solid rgb(2, 52, 54); }
     .newsletter-strip-inner {
-      max-width: 1200px; margin: 0 auto; padding: 12px 32px;
-      display: flex; align-items: center; gap: 24px; min-height: 84px;
+      max-width: 1200px; margin: 0 auto; padding: 12px 32px 12px 130px;
+      display: flex; align-items: center; gap: 20px; min-height: 84px;
     }
     .newsletter-icon {
       flex-shrink: 0; width: 60px; height: 60px;
       display: flex; align-items: center; justify-content: center;
     }
     .newsletter-icon svg { width: 60px; height: 60px; }
-    /* Text column — takes up most of the width */
-    .newsletter-text { flex: 1; min-width: 160px; }
+    /* Text column */
+    .newsletter-text { flex: 1; min-width: 0; }
     .newsletter-text h3 {
-      font-family: var(--body-font); font-size: 20px; font-weight: 700;
+      font-family: var(--body-font); font-size: 20px; font-weight: 400;
       color: #fff; margin: 0 0 2px; line-height: 1.2;
     }
     .newsletter-text p {
       font-family: var(--body-font); font-size: 15px; font-weight: 400;
       color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0;
+      white-space: nowrap;
     }
     /* Button — fixed width, dark teal, with sea arrow tab */
     .newsletter-btn {
@@ -584,9 +599,9 @@
     .footer-col-wrap ul li { padding: 5px 0; margin: 0; }
     .footer-col-wrap ul li a {
       font-family: var(--footer-font);
-      font-size: 13px; font-weight: 100;
+      font-size: 14px; font-weight: 300;
       color: #bbc0c3;
-      text-decoration: none; line-height: 19.5px;
+      text-decoration: none; line-height: 18px;
       transition: color 0.15s;
     }
     .footer-col-wrap ul li a:hover { color: #76bd1d; }
@@ -718,7 +733,11 @@
 <div class="print-bar">
   <div class="site-inner">
     <a class="print-bar-logo" href="https://www.savemoneycutcarbon.com/" target="_blank">
-      <img src="Logo%20Thumbnail%202026%20Primary%20No%20Strap.png" alt="SaveMoneyCutCarbon">
+      <img class="logo-icon" src="Logo%20Thumbnail%202026%20Primary%20No%20Strap.png" alt="">
+      <div class="logo-wordmark">
+        <span>SaveMoney</span>
+        <span>CutCarbon<sup>®</sup></span>
+      </div>
     </a>
     <nav class="print-bar-nav">
       <a href="#">Support for Business</a>
@@ -1566,7 +1585,7 @@
             <li><a href="https://www.savemoneycutcarbon.com/corporate-social-responsibility/" target="_blank">Corporate Social Responsibility</a></li>
             <li><a href="https://jobs.savemoneycutcarbon.com/" target="_blank">Join Our Team</a></li>
             <li><a href="https://www.savemoneycutcarbon.com/news/" target="_blank">Press</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery and Human Trafficking Statement</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery and Human&nbsp;Trafficking Statement</a></li>
           </ul>
         </div>
 
