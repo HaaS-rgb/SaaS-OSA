@@ -561,10 +561,16 @@
       display: flex; align-items: center; justify-content: center;
       color: #fff;
       text-decoration: none;
-      font-size: 15px;
-      transition: background 0.15s;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
     }
-    .footer-social-icons a:hover { background: #d4881e; }
+    .footer-social-icons a svg { width: 17px; height: 17px; fill: #fff; display: block; }
+    .footer-social-icons a:hover { transform: translateY(-2px); }
+    .footer-social-icons a.si-fb:hover    { background: #1877f2; }
+    .footer-social-icons a.si-li:hover    { background: #0a66c2; }
+    .footer-social-icons a.si-x:hover     { background: #000; }
+    .footer-social-icons a.si-yt:hover    { background: #ff0000; }
+    .footer-social-icons a.si-ig:hover    { background: #e4405f; }
     /* Bottom bar */
     .site-footer-bottom {
       display: flex;
@@ -1440,7 +1446,7 @@
         <h3>Join our mailing list!</h3>
         <p>Sign up to receive tips on reducing your energy &amp; water bills, new product news &amp; more.</p>
       </div>
-      <a href="https://www.savemoneycutcarbon.com/pages/newsletter" target="_blank" class="footer-banner-btn">Yes please! ›</a>
+      <a href="https://www.savemoneycutcarbon.com/sign-up-and-save/" target="_blank" class="footer-banner-btn">Yes please! ›</a>
     </div>
 
     <!-- Three-column grid -->
@@ -1450,13 +1456,13 @@
       <div class="footer-col-wrap">
         <h4>Information</h4>
         <ul>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/contact-us" target="_blank">Contact Us</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/about-us" target="_blank">About Us</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/learn-save" target="_blank">Learn &amp; Save</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/corporate-social-responsibility" target="_blank">Corporate Social Responsibility</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/careers" target="_blank">Join Our Team</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/press" target="_blank">Press</a></li>
-          <li><a href="https://www.savemoneycutcarbon.com/pages/modern-slavery-statement" target="_blank">Modern Slavery &amp; Human Trafficking Statement</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank">Contact Us</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="_blank">About Us</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="_blank">Learn &amp; Save</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/corporate-social-responsibility/" target="_blank">Corporate Social Responsibility</a></li>
+          <li><a href="https://jobs.savemoneycutcarbon.com/" target="_blank">Join Our Team</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/news/" target="_blank">Press</a></li>
+          <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery &amp; Human Trafficking Statement</a></li>
         </ul>
       </div>
 
@@ -1479,15 +1485,25 @@
       <div class="footer-col-wrap">
         <h4>Customer Support</h4>
         <p class="footer-support-desc">For general advice about a product or your order:</p>
-        <a href="https://www.savemoneycutcarbon.com/pages/contact-us" target="_blank" class="footer-contact-btn">Contact us</a>
+        <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank" class="footer-contact-btn">Contact us</a>
         <a href="tel:03331235464" class="footer-phone">0333 123 5464</a>
         <p class="footer-social-label">Follow us on</p>
         <div class="footer-social-icons">
-          <a href="https://www.facebook.com/savemoneycutcarbon" target="_blank" aria-label="Facebook">f</a>
-          <a href="https://www.linkedin.com/company/savemoneycutcarbon" target="_blank" aria-label="LinkedIn" style="font-size:12px;font-weight:700">in</a>
-          <a href="https://twitter.com/smccarbon" target="_blank" aria-label="X">𝕏</a>
-          <a href="https://www.youtube.com/savemoneycutcarbon" target="_blank" aria-label="YouTube" style="font-size:12px">▶</a>
-          <a href="https://www.instagram.com/savemoneycutcarbon" target="_blank" aria-label="Instagram" style="font-size:13px">◎</a>
+          <a href="https://www.facebook.com/savemoneycutcarbon/" target="_blank" aria-label="Facebook" class="si-fb">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="http://www.linkedin.com/company/1871904" target="_blank" aria-label="LinkedIn" class="si-li">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zm2-4a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+          </a>
+          <a href="http://x.com/SaveCutCarbon" target="_blank" aria-label="X" class="si-x">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/savemoneycutcarbon" target="_blank" aria-label="YouTube" class="si-yt">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/savemoneycutcarbon/" target="_blank" aria-label="Instagram" class="si-ig">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
         </div>
       </div>
 
