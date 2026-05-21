@@ -53,7 +53,7 @@
     .footer-section {
       display: flex;
       flex-direction: column;
-      min-height: calc(100vh - 105px); /* viewport minus header+border */
+      min-height: calc(100vh - 100px); /* viewport minus sticky header (border-box, so 100px total) */
     }
 
     /* Document pages override: keep compact 13px for legal text */
@@ -569,20 +569,30 @@
       max-width: 1200px; margin: 0 auto; padding: 0 32px;
     }
 
-    /* Three-column grid: col 1 narrower (Modern Slavery wraps), cols 2+3 shift left */
+    /* Three-column grid: col 1 fixed, col 2 narrower shifts col 3 (Customer Support) left */
     .site-footer-grid {
       display: grid;
-      grid-template-columns: 310px 1fr 1fr;
+      grid-template-columns: 310px 0.8fr 1fr;
       column-gap: 0;
       padding: 70px 0 70px;
       align-items: start;
     }
-    /* Col 1: equal 30px on each side for symmetric divider gap */
-    .footer-col-wrap { padding: 0 30px 0 0; }
-    /* Col 2: divider border, equal 30px padding either side */
+    /* Col 1: tight right gap so divider sits close to Information content */
+    .footer-col-wrap { padding: 0 10px 0 0; }
+    /* Col 2: pseudo-element divider (short, dashed, light) close to col 1 */
     .footer-col-wrap:nth-child(2) {
-      padding: 0 30px 0 30px;
-      border-left: 1px solid rgba(255,255,255,0.22);
+      position: relative;
+      padding: 0 30px 0 50px;
+      border-left: none;
+    }
+    .footer-col-wrap:nth-child(2)::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8%;
+      height: 84%;
+      border-left: 1px dashed rgba(255,255,255,0.13);
+      pointer-events: none;
     }
     /* Col 3: no divider, left padding only */
     .footer-col-wrap:nth-child(3) { padding: 0 0 0 30px; }
@@ -607,8 +617,8 @@
     /* Customer support column */
     .footer-support-desc {
       font-family: var(--footer-font);
-      font-size: 13px; font-weight: 100;
-      color: #bbc0c3; margin: 14px 0 16px;
+      font-size: 13px; font-weight: 300;
+      color: #d2d6d9; margin: 14px 0 16px;
     }
     /* Contact button: inline-block, 19px, padding 8px 60px */
     .footer-contact-btn {
@@ -664,7 +674,7 @@
     }
     .site-footer-bottom {
       display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 20px 0 22px;
+      padding: 20px 0 42px;
       font-family: var(--footer-font);
       font-size: 13px; font-weight: 400;
       color: #bbc0c3;
