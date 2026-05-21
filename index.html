@@ -38,7 +38,6 @@
     }
 
     /* UI chrome: Open Sans 300 / 16px — matches SMCC site body */
-    html, body { height: 100%; }
     body {
       background: var(--bg);
       font-family: var(--body-font);
@@ -50,11 +49,11 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    /* Footer section takes all remaining space below page content */
+    /* Footer section — fills all remaining viewport so footer meets the sticky header */
     .footer-section {
       display: flex;
       flex-direction: column;
-      flex: 1;
+      min-height: calc(100vh - 105px); /* viewport minus header+border */
     }
 
     /* Document pages override: keep compact 13px for legal text */
@@ -96,7 +95,7 @@
       display: flex; align-items: center;
       flex-shrink: 0; text-decoration: none;
     }
-    .print-bar-logo svg { height: 60px; width: auto; display: block; }
+    .print-bar-logo svg { height: 74px; width: auto; display: block; }
     .print-bar-nav {
       display: flex;
       align-items: stretch;       /* stretch so hover-underline reaches the bottom border */
@@ -131,7 +130,7 @@
       bottom: -5px;               /* sits on top of the 5px border */
       left: 14px;
       right: 14px;
-      height: 3px;
+      height: 2px;
       background: var(--smcc-green);
       transform: scaleX(0);
       transform-origin: left center;
@@ -534,15 +533,15 @@
       display: flex; align-items: center; justify-content: center;
     }
     .newsletter-icon svg { width: 60px; height: 60px; }
-    /* Text column — constrained to ~570px so subtitle naturally wraps to 2 lines */
-    .newsletter-text { flex: 1; max-width: 570px; min-width: 0; }
+    /* Text column — fixed at 540px so text wraps and button sits left of screen edge */
+    .newsletter-text { flex: 0 0 540px; min-width: 0; }
     .newsletter-text h3 {
       font-family: var(--body-font); font-size: 20px; font-weight: 400;
       color: #fff; margin: 0 0 4px; line-height: 1.2;
     }
     .newsletter-text p {
       font-family: var(--body-font); font-size: 15px; font-weight: 400;
-      color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0;
+      color: rgba(255,255,255,0.7); line-height: 1.45; margin: 0;
     }
     /* Button — fixed width, dark teal, with sea arrow tab */
     .newsletter-btn {
@@ -562,31 +561,30 @@
     .newsletter-btn:hover { opacity: 0.9; }
 
     /* ── Site footer ── */
-    /* footer-upper grows to fill any remaining viewport height */
-    .site-footer { font-family: var(--footer-font); display: flex; flex-direction: column; }
+    .site-footer { font-family: var(--footer-font); display: flex; flex-direction: column; flex: 1; }
 
-    /* Upper dark teal section — flex: 1 so it fills remaining space */
+    /* Upper dark teal section — flex:1 grows to fill footer-section's min-height */
     .footer-upper { background: rgb(2, 52, 54); flex: 1; }
     .footer-upper-inner {
       max-width: 1200px; margin: 0 auto; padding: 0 32px;
     }
 
-    /* Three-column grid — gap-based, no padding tricks */
+    /* Three-column grid: col 1 narrower (Modern Slavery wraps), cols 2+3 shift left */
     .site-footer-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 310px 1fr 1fr;
       column-gap: 0;
       padding: 70px 0 70px;
       align-items: start;
     }
-    /* Col 1: right padding creates gap to divider */
+    /* Col 1: equal 30px on each side for symmetric divider gap */
     .footer-col-wrap { padding: 0 30px 0 0; }
-    /* Col 2: left border is the divider, padding either side */
+    /* Col 2: divider border, equal 30px padding either side */
     .footer-col-wrap:nth-child(2) {
       padding: 0 30px 0 30px;
-      border-left: 1px solid rgba(255,255,255,0.2);
+      border-left: 1px solid rgba(255,255,255,0.22);
     }
-    /* Col 3: left padding only, no divider */
+    /* Col 3: no divider, left padding only */
     .footer-col-wrap:nth-child(3) { padding: 0 0 0 30px; }
     /* Column headings: Open Sans 19px weight 100 — matches SMCC exactly */
     .footer-col-wrap h4 {
@@ -723,7 +721,7 @@
       .print-bar, .breadcrumb, .footer-section { display: none !important; }
 
       /* Reset body layout for print */
-      html, body {
+      body {
         height: auto !important;
         min-height: 0 !important;
         display: block !important;
@@ -1634,7 +1632,7 @@
     </div>
     <div class="newsletter-text">
       <h3>Join our mailing list!</h3>
-      <p>Sign up to receive tips on reducing your energy &amp; water bills, new product news &amp; more.</p>
+      <p>Sign up to receive tips on reducing your energy &amp; water bills, new product<br>news &amp; more.</p>
     </div>
     <a href="https://www.savemoneycutcarbon.com/sign-up-and-save/" target="_blank" class="newsletter-btn">
       <span class="nb-text">Yes please!</span>
