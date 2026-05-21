@@ -572,17 +572,17 @@
     /* Three-column grid: col 1 fixed, col 2 narrower shifts col 3 (Customer Support) left */
     .site-footer-grid {
       display: grid;
-      grid-template-columns: 250px 0.72fr 1fr;
+      grid-template-columns: 250px 0.9fr 1fr;
       column-gap: 0;
       padding: 70px 0 70px;
       align-items: start;
     }
     /* Col 1: narrow right gap so divider sits tight against Information content */
     .footer-col-wrap { padding: 0 10px 0 0; }
-    /* Col 2: wide left gap gives open space between divider and Delivery & Shopping */
+    /* Col 2: left padding restores D&S rightward position after col 1 was narrowed */
     .footer-col-wrap:nth-child(2) {
       position: relative;
-      padding: 0 30px 0 50px;
+      padding: 0 30px 0 80px;
       border-left: none;
     }
     .footer-col-wrap:nth-child(2)::before {
