@@ -101,7 +101,8 @@
       align-items: stretch;       /* stretch so hover-underline reaches the bottom border */
       gap: 4px;
       flex: 1;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-left: 12px;
     }
     .print-bar-nav a {
       font-size: 15px;
@@ -119,8 +120,8 @@
     .print-bar-nav a::after {
       content: '›';
       color: var(--smcc-green);
-      font-size: 16px;
-      font-weight: 400;
+      font-size: 18px;
+      font-weight: 700;
       margin-left: 8px;
     }
     /* Green underline — slides in on hover, sits on the dark teal bottom border */
@@ -864,7 +865,7 @@
 <!-- ── Print / action bar ── -->
 <div class="print-bar">
   <div class="site-inner">
-    <a class="print-bar-logo" href="https://www.savemoneycutcarbon.com/" target="_blank" aria-label="SaveMoneyCutCarbon">
+    <a class="print-bar-logo" href="https://www.savemoneycutcarbon.com/" target="smcc-site" aria-label="SaveMoneyCutCarbon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 236 74">
         <defs>
           <style>.sl1{fill:#b9dbd9}.sl2{fill:#ec9928}.sl3{fill:#77bc43}.sl4{clip-path:url(#slclip)}.sl5{fill:#043437}</style>
@@ -896,10 +897,10 @@
       </svg>
     </a>
     <nav class="print-bar-nav">
-      <a href="#">Support for Business</a>
-      <a href="#">Shop Online</a>
-      <a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="_blank">Learn &amp; Save</a>
-      <a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="_blank">About SMCC</a>
+      <a href="https://www.savemoneycutcarbon.com/sustainability-services/" target="smcc-site">Support for Business</a>
+      <a href="https://www.savemoneycutcarbon.com/home-shop/" target="smcc-site">Shop Online</a>
+      <a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="smcc-site">Learn &amp; Save</a>
+      <a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="smcc-site">About SMCC</a>
     </nav>
     <div class="print-bar-actions">
       <button class="btn-outline" onclick="window.print()">🖨 Print</button>
@@ -911,7 +912,7 @@
 <!-- ── Breadcrumb ── -->
 <div class="breadcrumb">
   <div class="site-inner">
-    <a href="https://www.savemoneycutcarbon.com/">SaveMoneyCutCarbon</a>
+    <a href="https://www.savemoneycutcarbon.com/" target="smcc-site">SaveMoneyCutCarbon</a>
     <span class="breadcrumb-sep">›</span>
     <span class="breadcrumb-current">Sustainability-as-a-Service</span>
   </div>
@@ -1740,7 +1741,7 @@
       <h3>Join our mailing list!</h3>
       <p>Sign up to receive tips on reducing your energy &amp; water bills, new product<br>news &amp; more.</p>
     </div>
-    <a href="https://www.savemoneycutcarbon.com/sign-up-and-save/" target="_blank" class="newsletter-btn">
+    <a href="https://www.savemoneycutcarbon.com/sign-up-and-save/" target="smcc-site" class="newsletter-btn">
       <span class="nb-text">Yes please!</span>
       <span class="nb-arrow">›</span>
     </a>
@@ -1759,13 +1760,13 @@
         <div class="footer-col-wrap">
           <h4>Information</h4>
           <ul>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank">Contact Us</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="_blank">About Us</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="_blank">Learn &amp; Save</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/corporate-social-responsibility/" target="_blank">Corporate Social Responsibility</a></li>
-            <li><a href="https://jobs.savemoneycutcarbon.com/" target="_blank">Join Our Team</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/news/" target="_blank">Press</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery and Human<br>Trafficking Statement</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="smcc-site">Contact Us</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/about-us/" target="smcc-site">About Us</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/learn-and-save/" target="smcc-site">Learn &amp; Save</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/corporate-social-responsibility/" target="smcc-site">Corporate Social Responsibility</a></li>
+            <li><a href="https://jobs.savemoneycutcarbon.com/" target="smcc-site">Join Our Team</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/news/" target="smcc-site">Press</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="smcc-site">Modern Slavery and Human<br>Trafficking Statement</a></li>
           </ul>
         </div>
 
@@ -1773,14 +1774,14 @@
         <div class="footer-col-wrap">
           <h4>Delivery &amp; Shopping</h4>
           <ul>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/delivery-information/" target="_blank">Delivery Information</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/returns-policy/" target="_blank">Returns Policy</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/remedial-works/" target="_blank">Remedial Works</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/club/trade/" target="_blank">Trade &amp; Bulk Support</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/price-match-guarantee/" target="_blank">Price Match Guarantee</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/help-advice/warranty-information/" target="_blank">Warranty Information</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/privacy-and-cookie-policy/" target="_blank">Privacy and Cookie Policy</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/terms-conditions/" target="_blank">Terms &amp; Conditions</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/delivery-information/" target="smcc-site">Delivery Information</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/returns-policy/" target="smcc-site">Returns Policy</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/remedial-works/" target="smcc-site">Remedial Works</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/club/trade/" target="smcc-site">Trade &amp; Bulk Support</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/price-match-guarantee/" target="smcc-site">Price Match Guarantee</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/help-advice/warranty-information/" target="smcc-site">Warranty Information</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/privacy-and-cookie-policy/" target="smcc-site">Privacy and Cookie Policy</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/terms-conditions/" target="smcc-site">Terms &amp; Conditions</a></li>
           </ul>
         </div>
 
@@ -1788,23 +1789,23 @@
         <div class="footer-col-wrap">
           <h4>Customer Support</h4>
           <p class="footer-support-desc">For general advice about a product or your order:</p>
-          <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="_blank" class="footer-contact-btn"><strong>Contact</strong> us</a>
+          <a href="https://www.savemoneycutcarbon.com/help-advice/contact/" target="smcc-site" class="footer-contact-btn"><strong>Contact</strong> us</a>
           <a href="tel:03331235464" class="footer-phone">0333 123 5464</a>
           <p class="footer-social-heading">Follow us on</p>
           <div class="footer-social-icons">
-            <a href="https://www.facebook.com/savemoneycutcarbon/" target="_blank" aria-label="Facebook" class="si-fb">
+            <a href="https://www.facebook.com/savemoneycutcarbon/" target="smcc-site" aria-label="Facebook" class="si-fb">
               <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
-            <a href="http://www.linkedin.com/company/1871904" target="_blank" aria-label="LinkedIn" class="si-li">
+            <a href="http://www.linkedin.com/company/1871904" target="smcc-site" aria-label="LinkedIn" class="si-li">
               <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zm2-4a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
             </a>
-            <a href="http://x.com/SaveCutCarbon" target="_blank" aria-label="X" class="si-x">
+            <a href="http://x.com/SaveCutCarbon" target="smcc-site" aria-label="X" class="si-x">
               <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.youtube.com/user/savemoneycutcarbon" target="_blank" aria-label="YouTube" class="si-yt">
+            <a href="https://www.youtube.com/user/savemoneycutcarbon" target="smcc-site" aria-label="YouTube" class="si-yt">
               <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
             </a>
-            <a href="https://www.instagram.com/savemoneycutcarbon/" target="_blank" aria-label="Instagram" class="si-ig">
+            <a href="https://www.instagram.com/savemoneycutcarbon/" target="smcc-site" aria-label="Instagram" class="si-ig">
               <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
           </div>
