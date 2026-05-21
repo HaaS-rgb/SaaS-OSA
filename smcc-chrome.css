@@ -47,7 +47,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
+  gap: 8px;
 }
 .print-bar-logo {
   display: flex; align-items: center;
@@ -60,7 +60,7 @@ body {
   gap: 4px;
   flex: 1;
   justify-content: flex-start;
-  padding-left: 0;
+  padding-left: 4px;
 }
 .print-bar-nav a {
   font-size: 15px;
