@@ -699,12 +699,66 @@
     .breadcrumb-sep { color: #ccc; font-size: 11px; }
     .breadcrumb-current { color: #aaa; font-weight: 400; }
 
-    /* ── Print styles ── */
+    /* ── Print / Save as PDF ── */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
     @media print {
+      /* Preserve all background colours and images exactly */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      /* Hide browser chrome */
       .print-bar, .breadcrumb, .newsletter-strip, .site-footer { display: none !important; }
-      .pages { margin: 0; padding: 0; gap: 0; max-width: none; }
-      .page { border-radius: 0; box-shadow: none; page-break-after: always; }
-      body { background: #fff; }
+
+      /* Reset body layout for print */
+      html, body {
+        height: auto !important;
+        min-height: 0 !important;
+        display: block !important;
+        background: #fff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Pages wrapper: full width, no screen chrome */
+      .pages {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        max-width: none !important;
+        width: 100% !important;
+        flex: none !important;
+      }
+
+      /* Each .page = one printed page */
+      .page {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        break-after: page;
+        page-break-after: always;
+        /* Avoid splitting the page header/footer across paper pages */
+        break-inside: avoid-page;
+      }
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      /* Ensure cover hero fills its area */
+      .cover-page .page-body { min-height: 0; }
+
+      /* Ensure inputs show their typed values */
+      input, select, textarea { border-color: #ccc !important; }
     }
 
     @media (max-width: 640px) {
