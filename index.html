@@ -764,8 +764,8 @@
         flex-direction: column !important;
         break-before: page;
         page-break-before: always;
-        break-inside: avoid;
-        page-break-inside: avoid;
+        /* No break-inside:avoid here — pages with more content than A4 height
+           (e.g. Solution Schedule) must be allowed to flow across print sheets */
       }
       .page:first-child {
         break-before: auto;
@@ -780,12 +780,12 @@
       /* 6 — Cover page: its page-body is already flex-column */
       .cover-page .page-body { min-height: 0 !important; }
 
-      /* 7 — T&C page has too much text to fit one A4 — let it flow freely
-              but keep each individual clause on one piece (no mid-clause break) */
+      /* 7 — T&C page (and any other long page) flows freely across print sheets.
+              display:block is critical — flex-column layouts break poorly across
+              print page boundaries; block flow is what the browser expects. */
       .page.tc-page {
         min-height: 0 !important;
-        break-inside: auto !important;
-        page-break-inside: auto !important;
+        display: block !important;
       }
       .tc-clause {
         break-inside: avoid;
@@ -1098,7 +1098,7 @@
   <!-- ══════════════════════════════════════════
        PAGE 4 — SOLUTION SCHEDULE
   ══════════════════════════════════════════ -->
-  <div class="page">
+  <div class="page tc-page">
     <div class="page-header">
       <div class="page-header-logo">
         <img src="Logo%20Thumbnail%202026%20White%20No%20Strap.png" alt="SaveMoneyCutCarbon" style="height:36px;display:block">
