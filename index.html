@@ -38,7 +38,7 @@
     }
 
     /* UI chrome: Open Sans 300 / 16px — matches SMCC site body */
-    html { height: 100%; }
+    html, body { height: 100%; }
     body {
       background: var(--bg);
       font-family: var(--body-font);
@@ -49,6 +49,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+    }
+    /* Footer section takes all remaining space below page content */
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     /* Document pages override: keep compact 13px for legal text */
@@ -167,7 +173,7 @@
     @media (max-width: 700px) { .print-bar-nav { display: none; } }
 
     /* ── Page wrapper ── */
-    .pages { max-width: 860px; margin: 32px auto; display: flex; flex-direction: column; gap: 24px; padding: 0 16px 160px; flex: 1; }
+    .pages { max-width: 860px; margin: 32px auto; display: flex; flex-direction: column; gap: 24px; padding: 0 16px 200px; }
 
     /* ── A4 page shell ── */
     .page {
@@ -520,24 +526,23 @@
     /* ── Newsletter strip (orange, above footer) ── */
     .newsletter-strip { background: rgb(236, 154, 41); border-top: 3px solid rgb(2, 52, 54); }
     .newsletter-strip-inner {
-      max-width: 1200px; margin: 0 auto; padding: 12px 32px 12px 130px;
-      display: flex; align-items: center; gap: 20px; min-height: 84px;
+      max-width: 1200px; margin: 0 auto; padding: 20px 32px 20px 130px;
+      display: flex; align-items: center; gap: 24px; min-height: 120px;
     }
     .newsletter-icon {
       flex-shrink: 0; width: 60px; height: 60px;
       display: flex; align-items: center; justify-content: center;
     }
     .newsletter-icon svg { width: 60px; height: 60px; }
-    /* Text column */
-    .newsletter-text { flex: 1; min-width: 0; overflow: hidden; }
+    /* Text column — constrained to ~570px so subtitle naturally wraps to 2 lines */
+    .newsletter-text { flex: 1; max-width: 570px; min-width: 0; }
     .newsletter-text h3 {
       font-family: var(--body-font); font-size: 20px; font-weight: 400;
-      color: #fff; margin: 0 0 2px; line-height: 1.2;
+      color: #fff; margin: 0 0 4px; line-height: 1.2;
     }
     .newsletter-text p {
-      font-family: var(--body-font); font-size: 13px; font-weight: 400;
+      font-family: var(--body-font); font-size: 15px; font-weight: 400;
       color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0;
-      white-space: nowrap;
     }
     /* Button — fixed width, dark teal, with sea arrow tab */
     .newsletter-btn {
@@ -557,10 +562,11 @@
     .newsletter-btn:hover { opacity: 0.9; }
 
     /* ── Site footer ── */
-    .site-footer { font-family: var(--footer-font); }
+    /* footer-upper grows to fill any remaining viewport height */
+    .site-footer { font-family: var(--footer-font); display: flex; flex-direction: column; }
 
-    /* Upper dark teal section */
-    .footer-upper { background: rgb(2, 52, 54); }
+    /* Upper dark teal section — flex: 1 so it fills remaining space */
+    .footer-upper { background: rgb(2, 52, 54); flex: 1; }
     .footer-upper-inner {
       max-width: 1200px; margin: 0 auto; padding: 0 32px;
     }
@@ -570,7 +576,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       column-gap: 0;
-      padding: 50px 0 50px;
+      padding: 70px 0 70px;
       align-items: start;
     }
     /* Col 1: right padding creates gap to divider */
@@ -714,7 +720,7 @@
       }
 
       /* Hide browser chrome */
-      .print-bar, .breadcrumb, .newsletter-strip, .site-footer { display: none !important; }
+      .print-bar, .breadcrumb, .footer-section { display: none !important; }
 
       /* Reset body layout for print */
       html, body {
@@ -1611,6 +1617,7 @@
 <!-- ══════════════════════════════════════════
      SITE FOOTER
 ══════════════════════════════════════════ -->
+<div class="footer-section">
 <!-- ── Newsletter strip (orange, separate from footer) ── -->
 <section class="newsletter-strip">
   <div class="newsletter-strip-inner">
@@ -1654,7 +1661,7 @@
             <li><a href="https://www.savemoneycutcarbon.com/corporate-social-responsibility/" target="_blank">Corporate Social Responsibility</a></li>
             <li><a href="https://jobs.savemoneycutcarbon.com/" target="_blank">Join Our Team</a></li>
             <li><a href="https://www.savemoneycutcarbon.com/news/" target="_blank">Press</a></li>
-            <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery and Human Trafficking Statement</a></li>
+            <li><a href="https://www.savemoneycutcarbon.com/modern-slavery-and-human-trafficking-statement/" target="_blank">Modern Slavery and Human<br>Trafficking Statement</a></li>
           </ul>
         </div>
 
@@ -1714,6 +1721,7 @@
   </div><!-- /.footer-lower -->
 
 </footer>
+</div><!-- /.footer-section -->
 
 <script>
   // Sync agreement number between cover page and signature page
