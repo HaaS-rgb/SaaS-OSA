@@ -713,6 +713,38 @@
     .breadcrumb-sep { color: #ccc; font-size: 11px; }
     .breadcrumb-current { color: #aaa; font-weight: 400; }
 
+    /* ── Back-to-top button ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ddecea;
+      border: 1.5px solid #a8c5c2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s, box-shadow 0.2s;
+      transform: translateY(8px);
+      z-index: 900;
+      box-shadow: 0 2px 8px rgba(3,52,54,0.12);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: #c8dedd;
+      box-shadow: 0 4px 14px rgba(3,52,54,0.18);
+    }
+    .back-to-top svg { display: block; }
+
     /* ── Print / Save as PDF ── */
     @page {
       size: A4 portrait;
@@ -802,6 +834,18 @@
 
       /* 9 — Show input values clearly */
       input, select, textarea { border-color: #ccc !important; }
+
+      /* 10 — Tighten vertical rhythm so page-footer stays within the A4 boundary.
+               Content was slightly over 297mm; reducing padding/margins gives back
+               ~120px, keeping header + body + footer within one printed sheet. */
+      .page-body { padding-top: 20px !important; padding-bottom: 20px !important; }
+      .section-intro { margin-bottom: 12px !important; }
+      .tc-clause { margin-bottom: 8px !important; }
+      .info-box { padding: 10px 14px !important; margin-bottom: 10px !important; }
+      h3.sub-head { margin-top: 12px !important; margin-bottom: 6px !important; }
+
+      /* 11 — Hide screen-only UI */
+      .back-to-top { display: none !important; }
     }
 
     @media (max-width: 640px) {
@@ -1783,7 +1827,21 @@
 </footer>
 </div><!-- /.footer-section -->
 
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+    <path d="M9 13.5V4.5M9 4.5L4.5 9M9 4.5L13.5 9" stroke="#033436" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
 <script>
+  // Back-to-top visibility
+  (function() {
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+  })();
+
   // Sync agreement number between cover page and signature page
   function syncAgmtNum(val) {
     document.getElementById('agmt-num-sig').value = val;
